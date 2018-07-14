@@ -12,7 +12,7 @@ app.set('view engine', 'ejs');
 app.use(methodOverride('_method')); // use method-override & search for ?_method in action in form
 app.use(express.static('public')); // make root directory
 app.use(bodyParser.urlencoded({ extended: true })); // convert CRUD data into readable format
-app.use(expressSanitizer());
+app.use(expressSanitizer()); // gain access on the resquest body object to sanitize method
 
 
 mongoose.connect('mongodb://localhost:27017/restfulblog_app', { useNewUrlParser: true });
